@@ -137,7 +137,7 @@ try:
         "temperature": 0.7,
         "top_p": 0.95,
         "top_k": 40,
-        "max_output_tokens": 512,
+        "max_output_tokens": 1024,
     }
 
     safety_settings = [
@@ -457,11 +457,12 @@ KURALLAR:
 2. Sonra BİLGİ'deki bilgileri kullan
 3. Takip soruları akıllıca yanıtla
 4. Bilgi yoksa "Bu konuda elimde bilgi bulunmuyor" de
-5. Kısa ve öz cevaplar ver (2-4 cümle)
+5. MUTLAKA tam cümlelerle cevap ver - cümleleri yarım bırakma
 6. Tavsiye verme - sadece bilgi paylaş
 7. Acil durumlarda 112'yi söyle
 8. Empati göster ama profesyonel kal
-9. Cevabında kaynak numarası (Kaynak 1, 2 gibi) kullanma"""
+9. Cevabında kaynak numarası (Kaynak 1, 2 gibi) kullanma
+10. Cevabını nokta ile bitir - yarım cümle bırakma"""
 
 USER_PROMPT_TEMPLATE = """{baglam}
 
@@ -581,16 +582,21 @@ def rag(soru, verbose=False):
         response = chat.send_message(f"{SYSTEM_PROMPT}\n\n{user_prompt}")
         cevap = extract_answer(response.text)
 
-        if len(cevap) < 20:
+        # Cevap çok kısaysa veya boşsa fallback kullan
+        if len(cevap.strip()) < 50:
             # Kaynak başlıklarını temizle
             context_clean = re.sub(r'\[Kaynak\s+\d+\]\s*\n?', '', context)
-            cevap = context_clean[:300].strip()
+            # İlk anlamlı cümleleri al
+            sentences = context_clean.split('.')[:3]  # İlk 3 cümle
+            cevap = '. '.join(s.strip() for s in sentences if s.strip()) + '.'
 
     except Exception as e:
         print(f"Generation hatası: {e}")
         # Kaynak başlıklarını temizle
         context_clean = re.sub(r'\[Kaynak\s+\d+\]\s*\n?', '', context)
-        cevap = context_clean[:300].strip()
+        # İlk anlamlı cümleleri al
+        sentences = context_clean.split('.')[:3]  # İlk 3 cümle
+        cevap = '. '.join(s.strip() for s in sentences if s.strip()) + '.'
 
     kaynaklar = format_sources(docs)
 
@@ -607,3 +613,4 @@ def rag(soru, verbose=False):
         "kaynak": kaynaklar,
         "model": "Gemini 2.0 Flash"
     }
+
