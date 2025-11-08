@@ -6,7 +6,7 @@ SIDAS, kadına yönelik şiddet konusunda bilgilendirme, destek ve yönlendirme 
 
 Alternatif görüntüleme:
 <video width="640" height="360" controls>
-  <source src="./assets/videos/demo.mp4" type="video/mp4">
+  <source src="./assets/videos/uygulama_video.mp4" type="video/mp4">
 </video>
 
 ## Özellikler
@@ -198,4 +198,5 @@ Bu proje, kadın haklarını desteklemek ve kadına yönelik şiddeti önlemek a
 **Not**: Daha detaylı teknik bilgi için ilgili README dosyalarına bakın:
 - [Backend README](./backend/README.md)
 - [Frontend README](./frontend/README.md)
+
 
