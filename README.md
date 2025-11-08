@@ -2,6 +2,15 @@
 
 SIDAS, kadına yönelik şiddet konusunda bilgilendirme, destek ve yönlendirme sağlayan akıllı bir chatbot uygulamasıdır. Yapay zeka destekli RAG (Retrieval-Augmented Generation) sistemi ile Türkiye'deki kadın hakları, yasal süreçler ve destek mekanizmaları hakkında güvenilir bilgiler sunar.
 
+## Tanıtım Videosu
+
+https://github.com/KULLANICI_ADINIZ/studio-mobile_yeni/assets/VIDEO_ID/demo.mp4
+
+Alternatif görüntüleme:
+<video width="640" height="360" controls>
+  <source src="./assets/videos/demo.mp4" type="video/mp4">
+</video>
+
 ## Özellikler
 
 ### Ana Özellikler
