@@ -4,7 +4,7 @@ SIDAS, kadına yönelik şiddet konusunda bilgilendirme, destek ve yönlendirme 
 
 ## Tanıtım Videosu
 
-[https://user-images.githubusercontent.com/148988515/284170679-962151ac-a495-4db0-8f71-fcd1cbda488f.mp4 ](https://github.com/DemetAsgaroglu/code4her-sidas/issues/1)
+[Video linki](https://github.com/DemetAsgaroglu/code4her-sidas/issues/1)
 
 
 ## Özellikler
@@ -196,6 +196,7 @@ Bu proje, kadın haklarını desteklemek ve kadına yönelik şiddeti önlemek a
 **Not**: Daha detaylı teknik bilgi için ilgili README dosyalarına bakın:
 - [Backend README](./backend/README.md)
 - [Frontend README](./frontend/README.md)
+
 
 
 
